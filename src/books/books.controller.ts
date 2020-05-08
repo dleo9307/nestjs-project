@@ -7,9 +7,9 @@ export class BooksController {
   constructor(private booksService : BooksService) {
   }
 
-
   @Get()
   async findAll(): Promise<Book[]>{
     return this.booksService.findAll();
   }
+
 }

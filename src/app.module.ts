@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { ConfigModule } from '@nestjs/config';
 import { DatabaseModule } from './database/database.module';
 import { BooksModule } from './books/books.module';
 
@@ -11,15 +10,9 @@ import { BooksModule } from './books/books.module';
 })
 
 @Module({
-  imports: [ConfigModule.forRoot({
-    envFilePath: './conf/config.env',
-    ignoreEnvFile: true,
-  })],
+  imports: [DatabaseModule, BooksModule],
 })
 
-@Module({
-  imports: [DatabaseModule, BooksModule]
-})
 
 export class AppModule {
 }

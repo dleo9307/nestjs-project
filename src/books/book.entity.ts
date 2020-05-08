@@ -1,7 +1,9 @@
 import { Table, Column, Model, AllowNull, Default, AutoIncrement, PrimaryKey } from 'sequelize-typescript';
 
 
-@Table
+@Table({
+  timestamps: false,
+})
 export class Book extends Model<Book> {
   @PrimaryKey
   @AutoIncrement
