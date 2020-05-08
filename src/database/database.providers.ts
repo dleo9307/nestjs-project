@@ -1,5 +1,6 @@
 import { Sequelize } from 'sequelize-typescript';
 import { Book } from '../books/book.entity';
+import { BookStore } from '../bookStore/bookStore.entity';
 
 export const databaseProviders = [
   {
@@ -13,7 +14,7 @@ export const databaseProviders = [
         password: '',
         database: 'test',
       });
-      sequelize.addModels([Book]);
+      sequelize.addModels([Book, BookStore]);
       await sequelize.sync();
       return sequelize;
     },
