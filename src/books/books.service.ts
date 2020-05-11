@@ -1,5 +1,6 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { Book } from './book.entity';
+import { CreateBookDto } from './dto/create-book.dto';
 
 @Injectable()
 export class BooksService {
@@ -7,7 +8,45 @@ export class BooksService {
   constructor(@Inject('BOOKS_REPOSITORY') private booksRepository: typeof Book) {
   }
 
-  async findAll(): Promise<Book[]>{
+  async findAll(): Promise<Book[]> {
     return this.booksRepository.findAll<Book>();
+  }
+
+  async create(dto: CreateBookDto): Promise<Book> {
+    return this.booksRepository.create(dto);
+  }
+
+  async pushDummy(): Promise<Book[]> {
+    const dummy = [
+      {
+        'name': 'java의 정석',
+        'author': 'lee',
+        'publisher': 'oracle',
+      },
+      {
+        'name': '열혈 c언어',
+        'author': 'ku',
+        'publisher': 'rich',
+      },
+      {
+        'name': 'node.js',
+        'author': 'kim',
+        'publisher': 'haha',
+      },
+      {
+        'name': 'test코드',
+        'author': 'lim',
+        'publisher': 'dudu',
+      },
+      {
+        'name': '오리',
+        'author': '꽥꽥',
+        'publisher': '동물농장',
+      }];
+    return this.booksRepository.bulkCreate(dummy);
+  }
+
+  async deleteAll(): Promise<number> {
+    return this.booksRepository.destroy({truncate:true})
   }
 }
