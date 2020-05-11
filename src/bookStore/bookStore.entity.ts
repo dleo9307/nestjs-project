@@ -1,4 +1,5 @@
-import { Table, Column, Model, AllowNull, AutoIncrement, PrimaryKey } from 'sequelize-typescript';
+import { Table, Column, Model, AllowNull, AutoIncrement, PrimaryKey, HasMany } from 'sequelize-typescript';
+import { Book } from '../books/book.entity';
 
 
 @Table({
@@ -17,5 +18,8 @@ export class BookStore extends Model<BookStore> {
   @AllowNull(false)
   @Column
   location: string;
+
+  @HasMany(() => Book)
+  books: Book[];
 }
 
