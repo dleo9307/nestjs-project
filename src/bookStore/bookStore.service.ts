@@ -1,5 +1,6 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { BookStore } from './bookStore.entity';
+import { CreateBookStoreDto } from './dto/create-bookStore.dto';
 
 @Injectable()
 export class BookStoreService {
@@ -9,5 +10,10 @@ export class BookStoreService {
 
   async findAll(): Promise<BookStore[]>{
     return this.booksRepository.findAll<BookStore>();
+  }
+
+
+  async create(createBookStoreDto: CreateBookStoreDto): Promise<BookStore> {
+    return this.booksRepository.create(createBookStoreDto);
   }
 }

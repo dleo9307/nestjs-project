@@ -9,7 +9,7 @@ async function bootstrap() {
     .setTitle('Books Project')
     .setDescription('BookStore mini Project')
     .setVersion('1.0')
-    .addTag('Book')
+    .addTag('Mini Project')
     .build();
 
   const document = SwaggerModule.createDocument(app, options);

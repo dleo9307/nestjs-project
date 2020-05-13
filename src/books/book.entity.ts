@@ -7,7 +7,7 @@ import {
   AutoIncrement,
   PrimaryKey,
   ForeignKey,
-  BelongsTo,
+  BelongsTo, Unique,
 } from 'sequelize-typescript';
 import { BookStore } from '../bookStore/bookStore.entity';
 
@@ -22,6 +22,7 @@ export class Book extends Model<Book> {
   id: number;
 
   @AllowNull(false)
+  @Unique
   @Column
   name: string;
 

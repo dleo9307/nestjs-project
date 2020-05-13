@@ -2,7 +2,9 @@ import { Body, Controller, Delete, Get, Post } from '@nestjs/common';
 import { BooksService } from './books.service';
 import { Book } from './book.entity';
 import { CreateBookDto } from './dto/create-book.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('books')
 @Controller('books')
 export class BooksController {
   constructor(private booksService: BooksService) {
