@@ -1,17 +1,17 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { BookStore } from '../../bookStore/bookStore.entity';
 
-export class CreateBookDto {
-  @ApiProperty({required:true})
+export class UpdateBookDto {
+  @ApiProperty({required:false})
   readonly name: string;
 
-  @ApiProperty({required:true})
+  @ApiProperty({required:false})
   readonly author: string;
 
-  @ApiProperty({required:true})
+  @ApiProperty({required:false})
   readonly publisher: string;
 
-  @ApiProperty()
+  @ApiProperty({required:false})
   readonly count: number;
 
   @ApiProperty({required:false})

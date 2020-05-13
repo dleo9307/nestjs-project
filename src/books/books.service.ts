@@ -1,6 +1,8 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { Book } from './book.entity';
 import { CreateBookDto } from './dto/create-book.dto';
+import { UpdateBookDto } from './dto/update-book.dto';
+import { where } from 'sequelize';
 
 @Injectable()
 export class BooksService {
@@ -14,6 +16,10 @@ export class BooksService {
 
   async create(dto: CreateBookDto): Promise<Book> {
     return this.booksRepository.create(dto);
+  }
+
+  async update(id: number, updateData: UpdateBookDto): Promise<[number, Book[]]> {
+    return this.booksRepository.update(updateData, {where:{id}})
   }
 
   async pushDummy(): Promise<Book[]> {
