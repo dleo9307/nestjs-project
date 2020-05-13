@@ -1,13 +1,13 @@
 import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateBookDto {
-  @ApiProperty()
+  @ApiProperty({required:true})
   readonly name: string;
 
-  @ApiProperty()
+  @ApiProperty({required:true})
   readonly author: string;
 
-  @ApiProperty()
+  @ApiProperty({required:true})
   readonly publisher: string;
 
   @ApiProperty()
