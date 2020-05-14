@@ -7,10 +7,9 @@ import {
   AutoIncrement,
   PrimaryKey,
   ForeignKey,
-  BelongsTo, Unique,
+  BelongsTo, Unique
 } from 'sequelize-typescript';
 import { BookStore } from '../bookStore/bookStore.entity';
-
 
 @Table({
   timestamps: false,

@@ -11,7 +11,7 @@ export const databaseProviders = [
         host: 'localhost',
         port: 3306,
         username: 'root',
-        password: '',
+        password: 'test',
         database: 'test',
       });
       sequelize.addModels([Book, BookStore]);

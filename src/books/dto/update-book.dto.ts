@@ -15,5 +15,5 @@ export class UpdateBookDto {
   readonly count: number;
 
   @ApiProperty({required:false})
-  readonly bookStore: BookStore;
+  readonly bookStore_id: number;
 }

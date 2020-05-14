@@ -27,11 +27,11 @@ export class BooksController {
   }
 
   @Put(':id')
-  update(@Param('id') id: number, @Body() updateData: UpdateBookDto): Promise<[number, Book[]]>{
+  async update(@Param('id') id: number, @Body() updateData: UpdateBookDto): Promise<[number, Book[]]>{
     return this.booksService.update(id, updateData);
   }
 
-  @Delete()
+  @Delete('all')
   async deleteAll(): Promise<Number> {
     return this.booksService.deleteAll();
   }
