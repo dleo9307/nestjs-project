@@ -44,9 +44,10 @@ export class Book extends Model<Book> {
   @Field(type => Int, {nullable: true})
   count: number;
 
+  @AllowNull(false)
   @ForeignKey(() => BookStore)
   @Column
-  @Field(type => Int, {nullable: true})
+  @Field(type => Int, {nullable: false})
   bookStore_id: number;
 
   @BelongsTo(() => BookStore)

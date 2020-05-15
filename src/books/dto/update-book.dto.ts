@@ -1,5 +1,4 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { BookStore } from '../../bookStore/bookStore.entity';
 
 export class UpdateBookDto {
   @ApiProperty({required:false})

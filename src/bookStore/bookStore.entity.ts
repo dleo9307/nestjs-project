@@ -1,6 +1,6 @@
 import { Table, Column, Model, AllowNull, AutoIncrement, PrimaryKey, HasMany } from 'sequelize-typescript';
 import { Book } from '../books/book.entity';
-import { Field, ObjectType } from '@nestjs/graphql';
+import { Field, Int, ObjectType } from '@nestjs/graphql';
 
 
 @Table({
@@ -11,7 +11,7 @@ export class BookStore extends Model<BookStore> {
   @PrimaryKey
   @AutoIncrement
   @Column
-  @Field()
+  @Field(type => Int)
   id: number;
 
   @AllowNull(false)
