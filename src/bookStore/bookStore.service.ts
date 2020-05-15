@@ -2,6 +2,7 @@ import { Injectable, Inject, NotFoundException } from '@nestjs/common';
 import { BookStore } from './bookStore.entity';
 import { CreateBookStoreDto } from './dto/create-bookStore.dto';
 import { UpdateBookStoreDto } from './dto/update-bookStore.dto';
+import { Book } from '../books/book.entity';
 
 @Injectable()
 export class BookStoreService {
@@ -10,7 +11,7 @@ export class BookStoreService {
   }
 
   async findAll(): Promise<BookStore[]>{
-    return this.bookStoreRepository.findAll<BookStore>();
+    return this.bookStoreRepository.findAll<BookStore>({include:[Book]});
   }
 
   async create(createBookStoreDto: CreateBookStoreDto): Promise<BookStore> {
