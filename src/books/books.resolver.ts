@@ -25,5 +25,10 @@ export class BooksResolver {
                    @Args('input') input: UpdateBookArgs) {
     return this.booksService.update(bookId, input);
   }
+
+  @Mutation(returns => Boolean)
+  async deleteBook(@Args('bookId', {type: () =>Int}) bookId: number){
+    return this.booksService.deleteById(bookId);
+  }
 }
 

@@ -31,6 +31,11 @@ export class BooksController {
     return this.booksService.update(id, updateData);
   }
 
+  @Delete(':id')
+  async deleteById(@Param('id') id: number): Promise<Boolean>{
+    return this.booksService.deleteById(id);
+  }
+
   @Delete('all')
   async deleteAll(): Promise<Number> {
     return this.booksService.deleteAll();

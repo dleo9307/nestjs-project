@@ -57,6 +57,16 @@ export class BooksService {
     return this.booksRepository.bulkCreate(dummy);
   }
 
+  async deleteById(id: number): Promise<Boolean> {
+    const deleteObj = await this.booksRepository.findByPk(id);
+
+    if(!deleteObj){
+      return false;
+    }
+    deleteObj.destroy();
+    return true;
+  }
+
   async deleteAll(): Promise<number> {
     return this.booksRepository.destroy({truncate:true})
   }
