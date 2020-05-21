@@ -13,6 +13,13 @@ export const databaseProviders = [
         username: 'root',
         password: 'test',
         database: 'test',
+        dialectOptions:{
+          useUTC: false
+        },
+        define:{
+          charset: "utf8"
+        },
+        timezone: "Asia/Seoul"
       });
       sequelize.addModels([Book, BookStore]);
       await sequelize.sync();
