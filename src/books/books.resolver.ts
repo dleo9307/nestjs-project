@@ -35,5 +35,10 @@ export class BooksResolver {
   async deleteAllBook(){
     return this.booksService.deleteAll();
   }
+
+  @Mutation(returns => [Book])
+  async createDummyBook(){
+    return this.booksService.pushDummy()
+  }
 }
 
