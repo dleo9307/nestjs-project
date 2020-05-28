@@ -30,5 +30,10 @@ export class BooksResolver {
   async deleteBook(@Args('bookId', {type: () =>Int}) bookId: number){
     return this.booksService.deleteById(bookId);
   }
+
+  @Mutation(returns => Int)
+  async deleteAllBook(){
+    return this.booksService.deleteAll();
+  }
 }
 
