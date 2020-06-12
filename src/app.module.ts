@@ -12,7 +12,7 @@ import { GraphQLUpload } from 'graphql-tools';
     BookStoreModule,
     GraphQLModule.forRoot({
       debug: true,
-      autoSchemaFile: 'schema.gql',
+      autoSchemaFile: 'schema.graphql',
       installSubscriptionHandlers: true,
       playground: true,
     }),
