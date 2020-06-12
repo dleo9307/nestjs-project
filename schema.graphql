@@ -1,0 +1,49 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type BookStore {
+  id: Int!
+  name: String!
+  location: String!
+  books: [Book!]!
+}
+
+type Book {
+  id: Int!
+  name: String!
+  author: String!
+  publisher: String!
+  count: Int
+  bookStore_id: Int!
+  bookStore: BookStore!
+}
+
+type Query {
+  books: [Book!]!
+  bookStore: [BookStore!]!
+}
+
+type Mutation {
+  createBook(input: CreateBookArgs!): Book!
+  updateBook(input: UpdateBookArgs!, bookId: Int!): [Int!]!
+  deleteBook(bookId: Int!): Boolean!
+  deleteAllBook: Int!
+  createDummyBook: [Book!]!
+}
+
+input CreateBookArgs {
+  name: String!
+  author: String!
+  publisher: String!
+  count: Int
+  bookStore_id: Int!
+}
+
+input UpdateBookArgs {
+  name: String
+  author: String
+  publisher: String
+  count: Int
+  bookStore_id: Int
+}
