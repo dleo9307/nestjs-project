@@ -3,7 +3,6 @@ import { Args, Int, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { BooksService } from './books.service';
 import { CreateBookArgs } from './dto/create-book.args';
 import { UpdateBookArgs } from './dto/update-book.args';
-import { type } from 'os';
 
 @Resolver(of => Book)
 export class BooksResolver {
