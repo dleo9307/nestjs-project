@@ -2,18 +2,18 @@ import { Module } from '@nestjs/common';
 import { DatabaseModule } from './database/database.module';
 import { BooksModule } from './books/books.module';
 import { BookStoreModule } from './bookStore/bookStore.module';
-import { GraphQLModule } from '@nestjs/graphql';
-import { GraphQLUpload } from 'graphql-tools';
+import { GraphQLFederationModule } from '@nestjs/graphql';
+
 
 @Module({
   imports: [
     DatabaseModule,
     BooksModule,
     BookStoreModule,
-    GraphQLModule.forRoot({
+    GraphQLFederationModule.forRoot({
       debug: true,
       autoSchemaFile: 'schema.graphql',
-      installSubscriptionHandlers: true,
+      // installSubscriptionHandlers: true,
       playground: true,
     }),
   ],
