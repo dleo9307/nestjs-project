@@ -15,6 +15,4 @@ export class UpdateBookArgs {
   @Field(returns => Int, {nullable:true})
   readonly count: number;
 
-  @Field(returns => Int, {nullable:true})
-  readonly bookStore_id: number;
 }

@@ -18,7 +18,4 @@ export class CreateBookArgs {
   @Field(returns => Int, {nullable:true})
   readonly count: number;
 
-
-  @Field(returns => Int)
-  readonly bookStore_id: number;
 }

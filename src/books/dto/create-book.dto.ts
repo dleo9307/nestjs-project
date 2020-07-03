@@ -20,7 +20,4 @@ export class CreateBookDto {
   @Field(returns => Int, {nullable:true})
   readonly count: number;
 
-  @ApiProperty({required:true})
-  @Field(returns => Int)
-  readonly bookStore_id: number;
 }

@@ -12,26 +12,17 @@ directive @requires(fields: String!) on FIELD_DEFINITION
 
 directive @provides(fields: String!) on FIELD_DEFINITION
 
-type BookStore {
-  id: Int!
-  name: String!
-  location: String!
-  books: [Book!]!
-}
-
 type Book {
   id: Int!
   name: String!
   author: String!
   publisher: String!
   count: Int
-  bookStore_id: Int!
-  bookStore: BookStore!
 }
 
 type Query {
   books: [Book!]!
-  bookStore: [BookStore!]!
+  book(id: Float!): Book!
 }
 
 type Mutation {
@@ -47,7 +38,6 @@ input CreateBookArgs {
   author: String!
   publisher: String!
   count: Int
-  bookStore_id: Int!
 }
 
 input UpdateBookArgs {
@@ -55,5 +45,4 @@ input UpdateBookArgs {
   author: String
   publisher: String
   count: Int
-  bookStore_id: Int
 }

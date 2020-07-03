@@ -2,7 +2,6 @@ import { Injectable, Inject } from '@nestjs/common';
 import { Book } from './book.entity';
 import { CreateBookDto } from './dto/create-book.dto';
 import { UpdateBookDto } from './dto/update-book.dto';
-import { BookStore } from '../bookStore/bookStore.entity';
 
 @Injectable()
 export class BooksService {
@@ -11,7 +10,11 @@ export class BooksService {
   }
 
   async findAll(): Promise<Book[]> {
-    return this.booksRepository.findAll<Book>({include:[BookStore]});
+    return this.booksRepository.findAll<Book>();
+  }
+
+  async findOne(id:number): Promise<Book> {
+    return this.booksRepository.findByPk(id);
   }
 
   async create(dto: CreateBookDto): Promise<Book> {
@@ -28,31 +31,26 @@ export class BooksService {
         'name': 'java의 정석',
         'author': 'lee',
         'publisher': 'oracle',
-        'bookStore_id': 1
       },
       {
         'name': '열혈 c언어',
         'author': 'ku',
         'publisher': 'rich',
-        'bookStore_id': 1
       },
       {
         'name': 'node.js',
         'author': 'kim',
         'publisher': 'haha',
-        'bookStore_id': 1
       },
       {
         'name': 'test코드',
         'author': 'lim',
         'publisher': 'dudu',
-        'bookStore_id': 1
       },
       {
         'name': '오리',
         'author': '꽥꽥',
         'publisher': '동물농장',
-        'bookStore_id': 1
       }];
     return this.booksRepository.bulkCreate(dummy);
   }

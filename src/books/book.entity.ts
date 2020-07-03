@@ -9,14 +9,20 @@ import {
   ForeignKey,
   BelongsTo, Unique,
 } from 'sequelize-typescript';
-import { BookStore } from '../bookStore/bookStore.entity';
-import { Field, Int, ObjectType } from '@nestjs/graphql';
+import { Directive, Field, Int, ObjectType } from '@nestjs/graphql';
 
 @Table({
   timestamps: false,
 })
+
 @ObjectType()
+@Directive('@key(fields: "id")')
+@Directive('@key(fields: "name")')
+@Directive('@key(fields: "author")')
+@Directive('@key(fields: "publisher")')
+@Directive('@key(fields: "count")')
 export class Book extends Model<Book> {
+
   @PrimaryKey
   @AutoIncrement
   @Column
@@ -43,16 +49,5 @@ export class Book extends Model<Book> {
   @Column
   @Field(type => Int, {nullable: true})
   count: number;
-
-  @AllowNull(false)
-  @ForeignKey(() => BookStore)
-  @Column
-  @Field(type => Int, {nullable: false})
-  bookStore_id: number;
-
-  @BelongsTo(() => BookStore)
-  @Field( type => BookStore)
-  bookStore: BookStore;
-
 }
 
